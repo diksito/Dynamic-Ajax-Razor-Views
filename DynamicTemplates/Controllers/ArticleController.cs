@@ -11,14 +11,14 @@ namespace DynamicTemplates.Controllers
 {
     public class ArticleController : ApiController
     {
-        // GET api/<controller>
-        public string Get()
+        // GET api/Article
+        public string Get(string title, string description)
         {
             string date = DateTime.UtcNow.ToString();
             Article article = new Article
             {
-                Title = "Dummy " + date,
-                Description = "Dummy description " + date,
+                Title = title,
+                Description = description,
                 ArticleId = 1,
                 PublishedDate = DateTime.UtcNow
             };
@@ -31,27 +31,6 @@ namespace DynamicTemplates.Controllers
             parser.Parse("Home", "_PartialArticle");
 
             return parser.ToString();
-        }
-
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
         }
     }
 }
