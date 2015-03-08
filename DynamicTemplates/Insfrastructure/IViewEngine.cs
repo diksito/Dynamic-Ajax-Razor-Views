@@ -9,5 +9,7 @@ namespace DynamicTemplates.Insfrastructure
     interface IViewEngine
     {
         string Name { get; set; }
+
+        string ViewExtension { get; set; }
     }
 }
