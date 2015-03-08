@@ -8,13 +8,23 @@
 
 <div class="jumbotron">
     <h1>Welcome to dynamic templates<br></h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter title">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Description</label>
+            <textarea class="form-control" id="description" placeholder="Enter description"></textarea>
+        </div>
+        <button type="button" class="btn btn-default" onclick="add()">Submit</button>
+    </form>
 </div>
 
-<div class="row" id="article-list" data-request-url="@Url.HttpRouteUrl("DefaultApi", new { controller = "Article", method = "" })">
+<ul style="list-style: none;" class="row" id="article-list" data-request-url="@Url.HttpRouteUrl("DefaultApi", new { controller = "Article", method = "" })">
+
     @foreach (var item in Model)
     {
-        @Html.Partial("_PartialArticle", item)
+        <li>@Html.Partial("_PartialArticle", item)</li>
     }
-</div>
+</ul>
